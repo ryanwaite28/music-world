@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<title>Music World</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<link rel="stylesheet" type="text/css" href="http://ryanwaite28.github.io/my-cdn/css/bootstrap.css"/>
+		<link rel="stylesheet" type="text/css" href="style.css"/>
+		<link rel="stylesheet" type="text/css" media="only screen and (max-width: 785px)" href="mobile-style.css">
+		<link rel="icon" type="image/png" size="20x20" href="http://i.imgur.com/7iXV905.png"/>
+		<script src="http://ryanwaite28.github.io/my-cdn/js/angular.js"></script>
+		<script src="http://ryanwaite28.github.io/my-cdn/js/jquery.js"></script>
+		<script src="script-1.js"></script>
+		<script src="script-2.js"></script>
+	</head>
+	
+	<body ng-app="myApp" ng-controller="masterCtrl">
+	
+		<div class="top-bar" style="">
+		
+			<div class="ht-div">
+				<a href=""><h1 class="text-center" id="home-text"><strong>World of Tunes</strong></h1></a>
+			</div>
+			
+			<img src="http://i.imgur.com/huBw3xR.png" class="menu-icon" id="icon-1"/>
+			<!--<img src="http://i.imgur.com/huBw3xR.png" class="menu-icon" id="icon-2"/>-->
+			
+			<div class="logo-div">
+		
+				<div class="lastfm-div" id="lastfm-div">
+					<a class="no-dec" href=""><h3 class="text-center" id="lastfm-text"><strong>Last FM</strong></h3></a>
+				</div>
+			
+				<!--<div class="spotify-div" id="spotify-div">
+					<a href=""><h3 class="text-center" id="spotify-text">Spotify</h3></a>
+				</div>-->
+			
+			</div>
+			
+		</div>
+	
+		<div class="main-container" id="main-container">
+		
+			<!-- Last FM Contents -->
+			<div class="container-fluid" id="c-lastfm">
+				
+				<div class="row">
+					
+					<div class="col-md-3">
+						
+						<div class="lastfm-search" id="lastfm-search">
+						
+							<form>
+								
+								<div class="grand-search" id="grand-search">
+									<input id="i-artist" type="radio">Artist<br>
+									<input id="i-tag" type="radio">Tag<br>
+									<!--<input id="i-album" type="radio">Album<br>-->
+									<input id="i-track" type="radio">Track<br>
+								</div>
+								
+								<br>
+								
+								<p id="message"></p>
+								
+								<div class="artist-search" id="artist-search">
+									<input id="s-artist" type="text" placeholder="Search Artist"/><br>
+									<input id="art-toptracks" type="radio">Get Top Tracks<br>
+									<input id="art-gta" type="radio">Get Top Albums<br>
+									<input id="" type="submit" value="Submit" ng-click="loadArtists()"/>
+								</div>
+								
+								<!--<div class="album-search" id="album-search">
+									<input id="s-album" type="text" placeholder="Search Album"/><br>
+									<input id="alb-toptags" type="radio">Get Top Tags<br>
+									<input id="alb-info" type="radio">Get Info<br>
+									<input id="" type="submit" value="Submit" ng-click="loadAlbums()"/>
+								</div>-->
+
+								<div class="tag-search" id="tag-search">
+									<input id="s-tag" type="text" placeholder="Search a Tag or Genre"/><br>
+									<input id="tag-art" type="radio">Get Top Artists<br>
+									<input id="tag-trk" type="radio">Get Top Tracks<br>
+									<input id="tag-alb" type="radio">Get Top Albums<br>
+									<input id="" type="submit" value="Submit" ng-click="loadTags()"/>
+								</div>
+									
+								<div class="track-search" id="track-search">
+									<input style="margin-bottom: 10px;" id="s-track-name" type="text" placeholder="Track"/><br>
+									<input id="s-track-artist" type="text" placeholder="Artist"/><br>
+									<input id="trk-smlr" type="radio" name="gender" value="other">Get Similar<br>
+									<input id="trk-info" type="radio" name="gender" value="other">Get Info<br>
+									<input id="" type="submit" value="Submit" ng-click="loadTrack()"/>
+								</div>
+								
+							</form>
+						
+						</div>
+						
+					</div>
+					
+					<div class="col-md-9">
+						
+						<div class="artist-div" id="artist-div">
+						
+							<ul class="arttrks-list" id="arttrks-list">
+								<li ng-repeat="track in tracks">
+									<div class="list-item-div">
+									
+										<div class="trk-img-div">
+											<img class="img-one" src="{{track.trackImgFour}}"/>
+										</div>
+										
+										<div style="">
+											<h1>{{track.trackName}}</h1>
+											<p><strong>Play Count:</strong> {{track.trackPlayCount}}</p>
+											<p><strong>Listeners:</strong> {{track.trackListeners}}</p>
+											<p><strong>Streamable:</strong> {{track.trackStreamable}}</p>
+											<p><strong>Last FM Link:</strong> <a href="{{track.trackURL}}">Click For More Info</a></p>
+											<p><strong>Artist:</strong> <a href="{{track.artURL}}">{{track.artName}}</a></p>
+										</div>
+										
+									</div>
+									
+									<hr>
+									
+								</li>
+							</ul>
+							
+							<ul class="artalbs-list" id="artalbs-list">
+								<li ng-repeat="album in albums">
+									<div class="list-item-div">
+									
+										<div class="alb-img-div">
+											<img class="img-one" src="{{album.albumImgFour}}"/>
+										</div>
+										
+										<div style="">
+											<h1>{{album.albumName}}</h1>
+											<p><strong>Play Count:</strong> {{album.albumPlayCount}}</p>
+											<p><strong>Last FM Link:</strong> <a href="{{album.albumURL}}">Click For More Info</a></p>
+											<p><strong>Artist:</strong> <a href="{{album.artURL}}">{{album.artName}}</a></p>
+										</div>
+										
+									</div>
+									
+									<hr>
+									
+								</li>
+							</ul>
+						
+						</div>
+						
+						<div class="tag-div" id="tag-div">
+							
+							<ul class="tag-art-list" id="tag-art-list">
+								<li ng-repeat="tag in tagArtists">
+									<div class="list-item-div">
+									
+										<div class="alb-img-div">
+											<img class="img-one" src="{{tag.tagImgFour}}"/>
+										</div>
+										
+										<div style="">
+											<h1>{{tag.tagName}}</h1>
+											<p><strong>Rank:</strong> {{tag.tagRank}}</p>
+											<p><strong>Streamable:</strong> {{tag.tagStreamable}}</p>
+											<p><strong>Last FM Link:</strong> <a href="{{tag.tagURL}}">Click For More Info</a></p>
+										</div>
+										
+									</div>
+									
+									<hr>
+									
+								</li>
+							</ul>
+							
+							<ul class="tag-trk-list" id="tag-trk-list">
+								<li ng-repeat="tag in tagTracks">
+									<div class="list-item-div">
+									
+										<div class="alb-img-div">
+											<img class="img-one" src="{{tag.tagImgFour}}"/>
+										</div>
+										
+										<div style="">
+											<h1>{{tag.tagName}}</h1>
+											<p><strong>Artist:</strong> <a href="{{tag.tagArtistURL}}">{{tag.tagArtist}}</a></p>
+											<p><strong>Rank:</strong> {{tag.tagRank}}</p>
+											<p><strong>Duration:</strong> {{tag.tagDuration}}</p>
+											<p><strong>Last FM Link:</strong> <a href="{{tag.tagURL}}">Click For More Info</a></p>
+										</div>
+										
+									</div>
+									
+									<hr>
+									
+								</li>
+							</ul>
+							
+							<ul class="tag-alb-list" id="tag-alb-list">
+								<li ng-repeat="tag in tagAlbums">
+									<div class="list-item-div">
+									
+										<div class="alb-img-div">
+											<img class="img-one" src="{{tag.tagImgFour}}"/>
+										</div>
+										
+										<div style="">
+											<h1>{{tag.tagName}}</h1>
+											<p><strong>Artist:</strong> <a href="{{tag.tagArtistURL}}">{{tag.tagArtist}}</a></p>
+											<p><strong>Rank:</strong> {{tag.tagRank}}</p>
+											<p><strong>Last FM Link:</strong> <a href="{{tag.tagURL}}">Click For More Info</a></p>
+										</div>
+										
+									</div>
+									
+									<hr>
+									
+							</ul>
+							
+						</div>
+						
+						<div class="trk-div" id="trk-div">
+						
+							<ul class="trk-smlr-list" id="trk-smlr-list">
+								<li ng-repeat="track in similar">
+									<div class="list-item-div">
+									
+										<div class="alb-img-div">
+											<img class="img-one" src="{{track.trackImgFour}}"/>
+										</div>
+										
+										<div style="">
+											<h1>{{track.trackName}}</h1>
+											<p><strong>Artist:</strong> <a href="{{track.trackArtistURL}}">{{track.trackArtist}}</a></p>
+											<p><strong>Duration:</strong> {{track.trackDuration}}</p>
+											<p><strong>Play Count:</strong> {{track.trackPlayCount}}</p>
+											<p><strong>Matches:</strong> {{track.trackMatch}}</p>
+											<p><strong>Last FM Link:</strong> <a href="{{track.trackURL}}">Click For More Info</a></p>
+										</div>
+										
+									</div>
+									
+									<hr>
+									
+								</li>
+							</ul>
+							
+							<div class="trk-info-div" id="trk-info-div">
+							
+								<h1 class="text-center">{{artist}}</h1>
+								<h3 class="text-center">{{title}}</h3>
+								<img class="info-img" src="{{image}}"/>
+								
+								<hr>
+								
+								<center>
+								<p><strong>Tags</strong></p>
+								<p class="info-tag"><a href="{{trackTagOneURL}}">{{trackTagOneName}}</a></p>
+								<p class="info-tag"><a href="{{trackTagTwoURL}}">{{trackTagTwoName}}</a></p>
+								<p class="info-tag"><a href="{{trackTagThreeURL}}">{{trackTagThreeName}}</a></p>
+								<p class="info-tag"><a href="{{trackTagFourURL}}">{{trackTagFourName}}</a></p>
+								<p class="info-tag"><a href="{{trackTagFiveURL}}">{{trackTagFiveName}}</a></p>
+								</center>
+								
+								<hr>
+								
+								<p class="text-center"><strong>Summary</strong></p>
+								<p class="text-justify" style="padding: 15px;">{{infoContents}}</p> 
+								
+								<hr>
+								
+								<p class="text-center"><strong>Published</strong></p>
+								<p class="text-center">{{infoPublished}}</p>
+							
+							</div>
+						
+						</div>
+						
+					</div>
+					
+				</div>
+				
+			</div>
+			
+			<!-- Spotify Contents -->
+			<div class="container-fluid" id="c-spotify">
+				
+				<div class="row">
+					
+					<div class="col-md-12">
+						
+						<div>
+						
+						</div>
+						
+					</div>
+					
+					<div class="col-md-12">
+						
+						<div>
+						
+						</div>
+						
+					</div>
+					
+				</div>
+				
+			</div>
+		
+		</div>
+		
+	</body>
+
+</html>

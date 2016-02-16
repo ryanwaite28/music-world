@@ -1,0 +1,45 @@
+/* New Mobile Style */
+
+@media only screen and (max-width: 785px) {
+	
+	#icon-1 {
+		display: block;
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		height: 59px;
+		width: 59px;
+		border-right: 1px solid black;
+	}
+	#icon-2 {
+		display: block;
+		position: absolute;
+		top: 0px;
+		right: 0px;
+		height: 59px;
+		width: 59px;
+		border-left: 1px solid black;
+	}
+
+	.list-item-div{
+		display: block;
+	}
+	
+	.img-one {
+		height: 150px;
+		width: 150px;
+		display: block;
+	}
+	
+	.lastfm-search {
+		display: none;
+	}
+	
+	#home-text {
+		font-size: 35px;
+		width: calc(100% - 59px);
+		float: right;
+		height: 59px;
+	}
+	
+}

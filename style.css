@@ -1,0 +1,190 @@
+hr {
+	border-color: black;
+}
+
+/* Top Bar */
+
+.top-bar {
+	height: 100px;
+	width: 100%;
+	border-bottom: 1px solid black;
+	text-decoration: none;
+}
+
+#home-text {
+	background-image: linear-gradient(to bottom, #000000, #262626);
+	color: white;
+}
+
+.ht-div {
+	height: 60px;
+	width: 100%;
+	border-bottom: 1px solid black;
+}
+
+.logo-div {
+	height: 40px;
+	width: 100%;
+	display: flex;
+}
+
+.lastfm-div {
+	height: 40px;
+	width: 100%;
+	background-image: linear-gradient(to bottom, #b90000, #990000);
+	border-bottom: 3px solid black;
+}
+
+#lastfm-text {
+	line-height: 40px;
+	vertical-align: middle;
+	border-right: 1px solid black;
+	color: black;
+}
+
+.no-dec {
+	text-decoration: none;
+}
+
+.spotify-div {
+	height: 70px;
+	width: 50%;
+	line-height: 200px;
+	vertical-align: middle;
+}
+#spotify-text {
+	line-height: 40px;
+	vertical-align: middle;
+}
+
+#home-text, #lastfm-text, #spotify-text {
+	margin: 0px;
+}
+#home-text {
+	padding: 10px;
+}
+
+.whitey {
+	background-color: white;
+}
+
+/* Main Container */
+
+.main-container {
+	width: 100%;
+	height: calc(100vh - 100px);
+	overflow-y: scroll;
+	background-image: url('http://myownapp.com/wallpapers/Blueish_Mac_Wallpaper.jpg');
+	background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+.main-container::-webkit-scrollbar {
+	display: none;
+}
+
+#c-lastfm, #c-spotify {
+	position: absolute;
+    left: -999em;
+    height: 100%;
+    width: 100%;
+}
+
+.grand-search {
+	display: inline;
+}
+
+#artist-search, #album-search,
+#track-search, #tag-search {
+	display: none;
+}
+
+/* Last FM */
+
+.artist-div, .tag-div, .trk-div{
+	margin-top: 20px;
+    overflow-y: scroll;
+    height: calc(100vh - 120px);
+	display: none;
+	background-color: white;
+	border: 2px solid black;
+	padding: 10px;
+}
+.artist-div::-webkit-scrollbar {
+	
+}
+
+.artalbs-list, .arttrks-list, 
+.tag-art-list, .tag-trk-list, .tag-alb-list,
+.trk-smlr-list {
+	padding: 0px;
+	margin: 0px;
+	
+}
+.artalbs-list li, .arttrks-list li, 
+.tag-art-list li, .tag-trk-list li, .tag-alb-list li,
+.trk-smlr-list li {
+	list-style: none;
+	display: block;
+	width: 100%;
+}
+
+.lastfm-search {
+	border: 1px solid black; 
+	padding: 20px; 
+	margin-top: 20px;
+	background-color: white;
+	border: 2px solid black;
+	/*width: 215px;
+	display: block;
+	margin: auto;*/
+}
+
+.list-item-div{
+	display: flex;
+}
+
+.alb-img-div, .trk-img-div {
+	margin-right: 30px;
+	
+}
+
+.img-one {
+	border: 2px solid black;
+}
+
+.info-img {
+	display: block;
+	margin: auto;
+}
+
+.info-tag {
+	border: 1px solid black;
+	padding: 10px;
+	margin: 10px;
+	width: 100px;
+}
+
+.menu-icon {
+	
+}
+
+.menu-icon:hover {
+	background-color: grey;
+}
+
+#icon-1, #icon-2 {
+	display: none;
+	position: absolute;
+	top: 0px;
+	height: 59px;
+	width: 59px;
+}
+
+@media (max-width: 625px) {
+	
+	
+	
+}
+
+/* Spotify */
