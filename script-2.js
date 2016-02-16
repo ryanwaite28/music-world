@@ -46,7 +46,7 @@ App.controller('masterCtrl', function($scope) {
 		
 			artOption = 'getTopAlbums';
 			
-			artistAPI = 'http://ws.audioscrobbler.com/2.0/?method=artist.' + artOption + '&artist=' + searchArtist + '&limit=15&api_key=d75388110ca7dc9f1023d17803115757&format=json';
+			artistAPI = 'http://ws.audioscrobbler.com/2.0/?method=artist.' + artOption + '&artist=' + searchArtist + '&limit=25&api_key=d75388110ca7dc9f1023d17803115757&format=json';
 		
 			$scope.albums = [];
 			
@@ -100,7 +100,7 @@ App.controller('masterCtrl', function($scope) {
 		
 			artOption = 'getTopTracks';
 			
-			artistAPI = 'http://ws.audioscrobbler.com/2.0/?method=artist.' + artOption + '&artist=' + searchArtist + '&limit=30&api_key=d75388110ca7dc9f1023d17803115757&format=json';
+			artistAPI = 'http://ws.audioscrobbler.com/2.0/?method=artist.' + artOption + '&artist=' + searchArtist + '&limit=50&api_key=d75388110ca7dc9f1023d17803115757&format=json';
 		
 			$scope.tracks = [];
 			
@@ -230,6 +230,7 @@ App.controller('masterCtrl', function($scope) {
 				
 				}
 				
+				// Update View
 				$scope.$apply(function () {
 					console.log($scope.tagArtists);
 				});
@@ -287,6 +288,7 @@ App.controller('masterCtrl', function($scope) {
 				
 				}
 				
+				// Update View
 				$scope.$apply(function () {
 					console.log($scope.tagTracks);
 				});
@@ -342,6 +344,7 @@ App.controller('masterCtrl', function($scope) {
 				
 				}
 				
+				// Update View
 				$scope.$apply(function () {
 					console.log($scope.tagAlbums);
 				});
@@ -392,7 +395,7 @@ App.controller('masterCtrl', function($scope) {
 		
 			trackOption = 'getSimilar';
 			
-			trackAPI = 'http://ws.audioscrobbler.com/2.0/?method=track.' + trackOption + '&track=' + searchTrackName + '&artist=' + searchTrackArtist + '&limit=50&api_key=d75388110ca7dc9f1023d17803115757&format=json';
+			trackAPI = 'http://ws.audioscrobbler.com/2.0/?method=track.' + trackOption + '&track=' + searchTrackName + '&artist=' + searchTrackArtist + '&limit=100&api_key=d75388110ca7dc9f1023d17803115757&format=json';
 			
 			$scope.similar = [];
 			
@@ -434,6 +437,7 @@ App.controller('masterCtrl', function($scope) {
 					
 				}
 				
+				// Update View
 				$scope.$apply(function () {
 					console.log($scope.similar);
 				});
@@ -481,6 +485,7 @@ App.controller('masterCtrl', function($scope) {
 				console.log($scope.infoSummary);
 				console.log($scope.infoContents);
 				
+				// Update View
 				$scope.$apply(function () {
 					console.log('Info Loaded');
 				});
