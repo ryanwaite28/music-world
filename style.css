@@ -140,6 +140,14 @@ hr {
 	margin: auto;*/
 }
 
+/* Filters */
+
+#art-trk-ftr, #art-alb-ftr,
+#tag-art-ftr, #tag-trk-ftr, #tag-alb-ftr, 
+#trk-smlr-ftr {
+	display: none;
+}
+
 .list-item-div{
 	display: flex;
 }
