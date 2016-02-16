@@ -69,7 +69,10 @@
 									<input id="s-artist" type="text" placeholder="Search Artist"/><br>
 									<input id="art-toptracks" type="radio">Get Top Tracks<br>
 									<input id="art-gta" type="radio">Get Top Albums<br>
-									<input id="" type="submit" value="Submit" ng-click="loadArtists()"/>
+									<input id="" type="submit" value="Submit" style="margin-bottom: 10px;" ng-click="loadArtists()"/><br>
+									
+									<input id="art-trk-ftr" type="text" placeholder="Filter Artist Tracks" ng-model="artist.track"/>
+									<input id="art-alb-ftr" type="text" placeholder="Filter Artist Albums" ng-model="artist.album"/>
 								</div>
 								
 								<!--<div class="album-search" id="album-search">
@@ -84,7 +87,11 @@
 									<input id="tag-art" type="radio">Get Top Artists<br>
 									<input id="tag-trk" type="radio">Get Top Tracks<br>
 									<input id="tag-alb" type="radio">Get Top Albums<br>
-									<input id="" type="submit" value="Submit" ng-click="loadTags()"/>
+									<input id="" type="submit" value="Submit" style="margin-bottom: 10px;" ng-click="loadTags()"/><br>
+									
+									<input id="tag-art-ftr" type="text" placeholder="Filter Tagged Artist" ng-model="tag.artist"/>
+									<input id="tag-trk-ftr" type="text" placeholder="Filter Tagged Tracks" ng-model="tag.track"/>
+									<input id="tag-alb-ftr" type="text" placeholder="Filter Tagged Albums" ng-model="tag.album"/>
 								</div>
 									
 								<div class="track-search" id="track-search">
@@ -92,7 +99,9 @@
 									<input id="s-track-artist" type="text" placeholder="Artist"/><br>
 									<input id="trk-smlr" type="radio" name="gender" value="other">Get Similar<br>
 									<input id="trk-info" type="radio" name="gender" value="other">Get Info<br>
-									<input id="" type="submit" value="Submit" ng-click="loadTrack()"/>
+									<input id="" type="submit" value="Submit" style="margin-bottom: 10px;" ng-click="loadTrack()"/><br>
+									
+									<input id="trk-smlr-ftr" type="text" placeholder="Filter Similar Tracks" ng-model="track.similar"/>
 								</div>
 								
 							</form>
@@ -106,7 +115,7 @@
 						<div class="artist-div" id="artist-div">
 						
 							<ul class="arttrks-list" id="arttrks-list">
-								<li ng-repeat="track in tracks">
+								<li ng-repeat="track in tracks | filter : artist.track">
 									<div class="list-item-div">
 									
 										<div class="trk-img-div">
@@ -130,7 +139,7 @@
 							</ul>
 							
 							<ul class="artalbs-list" id="artalbs-list">
-								<li ng-repeat="album in albums">
+								<li ng-repeat="album in albums | filter : artist.album">
 									<div class="list-item-div">
 									
 										<div class="alb-img-div">
@@ -156,7 +165,7 @@
 						<div class="tag-div" id="tag-div">
 							
 							<ul class="tag-art-list" id="tag-art-list">
-								<li ng-repeat="tag in tagArtists">
+								<li ng-repeat="tag in tagArtists  | filter : tag.artist">
 									<div class="list-item-div">
 									
 										<div class="alb-img-div">
@@ -178,7 +187,7 @@
 							</ul>
 							
 							<ul class="tag-trk-list" id="tag-trk-list">
-								<li ng-repeat="tag in tagTracks">
+								<li ng-repeat="tag in tagTracks  | filter : tag.track">
 									<div class="list-item-div">
 									
 										<div class="alb-img-div">
@@ -201,7 +210,7 @@
 							</ul>
 							
 							<ul class="tag-alb-list" id="tag-alb-list">
-								<li ng-repeat="tag in tagAlbums">
+								<li ng-repeat="tag in tagAlbums  | filter : tag.album">
 									<div class="list-item-div">
 									
 										<div class="alb-img-div">
@@ -226,7 +235,7 @@
 						<div class="trk-div" id="trk-div">
 						
 							<ul class="trk-smlr-list" id="trk-smlr-list">
-								<li ng-repeat="track in similar">
+								<li ng-repeat="track in similar  | filter : track.similar">
 									<div class="list-item-div">
 									
 										<div class="alb-img-div">
