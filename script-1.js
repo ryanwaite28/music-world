@@ -59,7 +59,7 @@ $(document).ready(function(){
 		
 	});
 	
-	/* ---	Switch Search Functionality	--- */
+	/* ---	Switch Search/Filter Functionality	--- */
 	
 	var artistSearch = $('#artist-search');
 	var tagSearch = $('#tag-search');
@@ -71,7 +71,19 @@ $(document).ready(function(){
 	var albumSelect = $('#i-album');
 	var trackSelect = $('#i-track');
 	
-	/* Artist Selection */
+	/* --- */
+	
+	var artTrackFilter = $('#art-trk-ftr');
+	var artAlbumFilter = $('#art-alb-ftr');
+	
+	var tagArtistFilter = $('#tag-art-ftr');
+	var tagTrackFilter = $('#tag-trk-ftr');
+	var tagAlbumFilter = $('#tag-alb-ftr');
+	
+	var trackSimilarFilter = $('#trk-smlr-ftr');
+	var trackInfoRadio = $('#trk-info');
+	
+	/* --- Artist Selection --- */
 	artistSelect.click(function() {
 		artistSearch.css('display', 'block');
 		tagSearch.css('display', 'none');
@@ -82,15 +94,22 @@ $(document).ready(function(){
 		albumSelect.prop('checked', false);
 		trackSelect.prop('checked', false);
 	})
-	
+	/**/
 	$('#art-toptracks').click(function(){
 		$('#art-gta').prop('checked', false);
+		
+		artTrackFilter.css('display', 'block');
+		artAlbumFilter.css('display', 'none');
 	})
 	$('#art-gta').click(function(){
 		$('#art-toptracks').prop('checked', false);
+		
+		artTrackFilter.css('display', 'none');
+		artAlbumFilter.css('display', 'block');
 	})
 	
-	/* Tag Selection */
+	/* --- Tag Selection --- */
+	
 	tagSelect.click(function() {
 		artistSearch.css('display', 'none');
 		tagSearch.css('display', 'block');
@@ -101,40 +120,34 @@ $(document).ready(function(){
 		albumSelect.prop('checked', false);
 		trackSelect.prop('checked', false);
 	})
-	
+	/**/
 	$('#tag-art').click(function(){
 		$('#tag-trk').prop('checked', false);
 		$('#tag-alb').prop('checked', false);
+		
+		tagArtistFilter.css('display', 'block');
+		tagTrackFilter.css('display', 'none');
+		tagAlbumFilter.css('display', 'none');
 	})
 	$('#tag-trk').click(function(){
 		$('#tag-art').prop('checked', false);
 		$('#tag-alb').prop('checked', false);
+		
+		tagArtistFilter.css('display', 'none');
+		tagTrackFilter.css('display', 'block');
+		tagAlbumFilter.css('display', 'none');
 	})
 	$('#tag-alb').click(function(){
 		$('#tag-trk').prop('checked', false);
 		$('#tag-art').prop('checked', false);
-	})
-	
-	/* Album Selection */
-	albumSelect.click(function() {
-		artistSearch.css('display', 'none');
-		tagSearch.css('display', 'none');
-		albumSearch.css('display', 'block');
-		trackSearch.css('display', 'none');
 		
-		tagSelect.prop('checked', false);
-		artistSelect.prop('checked', false);
-		trackSelect.prop('checked', false);
+		tagArtistFilter.css('display', 'none');
+		tagTrackFilter.css('display', 'none');
+		tagAlbumFilter.css('display', 'block');
 	})
 	
-	$('#alb-toptags').click(function(){
-		$('#alb-info').prop('checked', false);
-	})
-	$('#alb-info').click(function(){
-		$('#alb-toptags').prop('checked', false);
-	})
+	/* --- Track Selection --- */
 	
-	/* Track Selection */
 	trackSelect.click(function() {
 		artistSearch.css('display', 'none');
 		tagSearch.css('display', 'none');
@@ -145,12 +158,16 @@ $(document).ready(function(){
 		albumSelect.prop('checked', false);
 		artistSelect.prop('checked', false);
 	})
-	
+	/**/
 	$('#trk-smlr').click(function(){
 		$('#trk-info').prop('checked', false);
+		
+		trackSimilarFilter.css('display', 'block');
 	})
 	$('#trk-info').click(function(){
 		$('#trk-smlr').prop('checked', false);
+		
+		trackSimilarFilter.css('display', 'none');
 	})
 	
 	/*		Show Menu		*/
@@ -196,7 +213,6 @@ $(document).ready(function(){
 		}
 		
 	});
-	
 	
 	
 });
