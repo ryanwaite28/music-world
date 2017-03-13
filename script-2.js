@@ -45,7 +45,7 @@ App.controller('masterCtrl', function($scope) {
 		
 			artOption = 'getTopAlbums';
 			
-			artistAPI = 'http://ws.audioscrobbler.com/2.0/?method=artist.' + artOption + '&artist=' + searchArtist + '&limit=25&api_key=d75388110ca7dc9f1023d17803115757&format=json';
+			artistAPI = 'https://ws.audioscrobbler.com/2.0/?method=artist.' + artOption + '&artist=' + searchArtist + '&limit=25&api_key=d75388110ca7dc9f1023d17803115757&format=json';
 		
 			$scope.albums = [];
 			
@@ -99,7 +99,7 @@ App.controller('masterCtrl', function($scope) {
 		
 			artOption = 'getTopTracks';
 			
-			artistAPI = 'http://ws.audioscrobbler.com/2.0/?method=artist.' + artOption + '&artist=' + searchArtist + '&limit=50&api_key=d75388110ca7dc9f1023d17803115757&format=json';
+			artistAPI = 'https://ws.audioscrobbler.com/2.0/?method=artist.' + artOption + '&artist=' + searchArtist + '&limit=50&api_key=d75388110ca7dc9f1023d17803115757&format=json';
 		
 			$scope.tracks = [];
 			
@@ -191,7 +191,7 @@ App.controller('masterCtrl', function($scope) {
 			
 			tagOption = 'getTopArtists';
 			
-			tagAPI = 'http://ws.audioscrobbler.com/2.0/?method=tag.' + tagOption + '&tag=' + searchTag + '&api_key=d75388110ca7dc9f1023d17803115757&format=json';
+			tagAPI = 'https://ws.audioscrobbler.com/2.0/?method=tag.' + tagOption + '&tag=' + searchTag + '&api_key=d75388110ca7dc9f1023d17803115757&format=json';
 			
 			$scope.tagArtists = [];
 			
@@ -247,7 +247,7 @@ App.controller('masterCtrl', function($scope) {
 			
 			tagOption = 'getTopTracks';
 			
-			tagAPI = 'http://ws.audioscrobbler.com/2.0/?method=tag.' + tagOption + '&tag=' + searchTag + '&api_key=d75388110ca7dc9f1023d17803115757&format=json';
+			tagAPI = 'https://ws.audioscrobbler.com/2.0/?method=tag.' + tagOption + '&tag=' + searchTag + '&api_key=d75388110ca7dc9f1023d17803115757&format=json';
 			
 			$scope.tagTracks = [];
 			
@@ -305,7 +305,7 @@ App.controller('masterCtrl', function($scope) {
 			
 			tagOption = 'getTopAlbums';
 			
-			tagAPI = 'http://ws.audioscrobbler.com/2.0/?method=tag.' + tagOption + '&tag=' + searchTag + '&api_key=d75388110ca7dc9f1023d17803115757&format=json';
+			tagAPI = 'https://ws.audioscrobbler.com/2.0/?method=tag.' + tagOption + '&tag=' + searchTag + '&api_key=d75388110ca7dc9f1023d17803115757&format=json';
 			
 			$scope.tagAlbums = [];
 			
@@ -394,7 +394,7 @@ App.controller('masterCtrl', function($scope) {
 		
 			trackOption = 'getSimilar';
 			
-			trackAPI = 'http://ws.audioscrobbler.com/2.0/?method=track.' + trackOption + '&track=' + searchTrackName + '&artist=' + searchTrackArtist + '&limit=100&api_key=d75388110ca7dc9f1023d17803115757&format=json';
+			trackAPI = 'https://ws.audioscrobbler.com/2.0/?method=track.' + trackOption + '&track=' + searchTrackName + '&artist=' + searchTrackArtist + '&limit=100&api_key=d75388110ca7dc9f1023d17803115757&format=json';
 			
 			$scope.similar = [];
 			
@@ -452,7 +452,7 @@ App.controller('masterCtrl', function($scope) {
 		
 			trackOption = 'getInfo';
 			
-			trackAPI = 'http://ws.audioscrobbler.com/2.0/?method=track.' + trackOption + '&track=' + searchTrackName + '&artist=' + searchTrackArtist + '&api_key=d75388110ca7dc9f1023d17803115757&format=json';
+			trackAPI = 'https://ws.audioscrobbler.com/2.0/?method=track.' + trackOption + '&track=' + searchTrackName + '&artist=' + searchTrackArtist + '&api_key=d75388110ca7dc9f1023d17803115757&format=json';
 		
 			$.getJSON(trackAPI, function(data){
 				console.log(data);
